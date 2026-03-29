@@ -22,6 +22,15 @@ public class DB {
 		}
 		return connection;
 	}
+	private static void closeConnection() {
+		if (connection != null) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new DbException("Não foi possivel fechar a conexão com o banco. Erro: "+e.getMessage());
+			}
+		}
+	}
 	private static Properties loadProperties() { // Carregar
 		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties properties = new Properties();
