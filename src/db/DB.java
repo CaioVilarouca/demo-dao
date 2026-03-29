@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class DB {
 	private static Connection connection = null;
-	private static Connection getConnection() {
+	public static Connection getConnection() { // Conectar com o banco
 		if (connection == null) {
 			try {
 				Properties properties = loadProperties();
@@ -22,7 +22,7 @@ public class DB {
 		}
 		return connection;
 	}
-	private static void closeConnection() {
+	public static void closeConnection() { // Fechar a conexão
 		if (connection != null) {
 			try {
 				connection.close();
@@ -31,7 +31,7 @@ public class DB {
 			}
 		}
 	}
-	private static Properties loadProperties() { // Carregar
+	private static Properties loadProperties() { // Carregar a conexão
 		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties properties = new Properties();
 			properties.load(fs);
