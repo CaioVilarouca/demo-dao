@@ -17,7 +17,7 @@ public class DB {
 				connection = DriverManager.getConnection(url, properties);
 			} 
 			catch (SQLException e) {
-				throw new DbException("Não foi possivel fazer a conexão com o banco. Erro: "+e.getMessage());
+				throw new DbException("Não foi possivel fazer a conexão com o banco.");
 			}
 		}
 		return connection;
@@ -27,7 +27,7 @@ public class DB {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				throw new DbException("Não foi possivel fechar a conexão com o banco. Erro: "+e.getMessage());
+				throw new DbException("Não foi possivel fechar a conexão com o banco.");
 			}
 		}
 	}
@@ -38,7 +38,7 @@ public class DB {
 			return properties;
 		}
 		catch (IOException e ) {
-			throw new DbException("Não foi possivel carregar o arquivo. Erro: "+e.getMessage());
+			throw new DbException("Não foi possivel carregar o arquivo.");
 		}
 	}
 }
